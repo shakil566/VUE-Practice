@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-    <h1>Home Page {{ msg }}</h1> 
+    <h1>Welcome to VUE</h1> 
   </div>
 </template>
 

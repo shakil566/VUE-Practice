@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomePage from '@/components/HomePage'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
+import Posts from '@/components/Posts'
 
 
 Vue.use(VueRouter)
@@ -11,7 +12,7 @@ const routes = [
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage
+    component: HomePage,
   },
   {
     path: '/about',
@@ -22,6 +23,11 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: Contact
+  },
+  {
+    path: '/posts',
+    name: 'posts',
+    component: Posts
   }
 ]
 
