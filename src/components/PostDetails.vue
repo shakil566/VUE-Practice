@@ -1,17 +1,16 @@
 <template>
-    <div class="posts" >
-        <h1>Posts from API</h1>
+    <div class="posts-details" >
+        <h1>Posts Details id:{{ id }} and userId: {{ post.userId }}</h1>
         <div v-if="loading">
             Loading....
         </div>
         <div v-else>
             
-        <div class="" v-for="post in posts" :key="post.id">
-            <!-- <h3>{{ post.title }}</h3> -->
-            <router-link :to="{ name:'posts-details', params:{id:post.id} }">{{ post.title }}</router-link>
-            <p>{{ post.body | stringLimit }}</p>
+        <div class="" >
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.body }}</p>
             <br>
-        </div>
+        </div> 
         </div>
     </div>
 </template>
@@ -21,18 +20,20 @@
 import axios from 'axios'
 
 export default {
-    name: 'Posts',
+    name: 'PostDetails',
     props:'',
     data(){
         return{
-            posts:[],
+            post:[],
             loading: true,
+            id:this.$route.params.id
         }
     },
     created(){
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://jsonplaceholder.typicode.com/posts/'+this.id)
         .then(response => {
-            return this.posts = response.data,
+            // console.log(response)
+            return this.post = response.data,
             this.loading = false;
         })
         .catch(error => {

@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> | 
       <router-link :to="{name:'contact'}">Contact</router-link> | 
-      <router-link :to="{name:'posts'}">Posts</router-link>
+      <router-link class="post" :to="{name:'posts'}">Posts</router-link>
     </nav>
     </div>
   </template>
@@ -39,7 +39,7 @@ nav a:hover {
   color: #42b983;
 }
 
-nav a.router-link-exact-active {
+nav a.router-link-exact-active ,nav a.post.router-link-active {
   color: #42b983;
 }
   </style>

@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <Navbar/>
+    <div class="breadcrumb-next-prev">
+      <button @click="Prev">Prev</button>
+      <button @click="Next">Next</button>
+    </div>
     <router-view/>
     <Footer/>
   </div>
@@ -17,6 +21,14 @@ import Footer from '@/components/assets/Footer.vue'
     components: {
       Navbar,
       Footer
+    },
+    methods:{
+      Next(){
+        this.$router.go(+1)
+      },
+      Prev(){
+        this.$router.go(-1)
+      }
     }
   }
   </script>
@@ -31,5 +43,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.breadcrumb-next-prev{
+    text-align: right;
+    margin: 10px;
+}
+.breadcrumb-next-prev button {
+  color: #fff;
+  background-color: #2c3e50;
+  margin: 2px;
+  border-radius: 5px !important;
 }
 </style>
